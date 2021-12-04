@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%- include("header") -%>
+  <div class="box" id="heading">
+    <h1> <%= listTitle %></h1>
+  </div>
 
-<head>
-  <meta charset="utf-8">
-  <title>To Do List</title>
-</head>
+  <div class="box">
+    <% for (var i=0;i<newListItems.length;i++){ %>
+    <div class="item">
+      <input type="checkbox">
+      <p> <%= newListItems[i] %></p>
+    </div>
+    <% } %>
 
-<body>
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+      <button type="submit" name="list" value=<%= listTitle%>>+</button>
+  </div>
 
-  <% if(kindOfDay==="Saturday"||kindOfDay==="Sunday"||kindOfDay==="Friday"){ %>
-    <h1 style="color:purple"> <%= kindOfDay %> Todo List</h1>
-  <% }else{ %>
-    <h1 style="color:blue"> <%= kindOfDay %> Todo List</h1>
-  <% } %>
-<ul>
-<li>Buy Food</li>
-<li>Cook Food</li>
-
-</ul>
-
-<form class="" action="/" method="post">
-<input type="text" name="newItem" >
-<button type="submit" name="button">Add</button>
-
-</form>
-
-</body>
-
-</html>
+  </form>
+<%- include("footer") -%>
